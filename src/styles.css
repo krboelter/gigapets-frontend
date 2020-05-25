@@ -63,13 +63,16 @@ table {
 ***********/
 html, body {
   width: 100%;
-  background-color: lightblue;
+  background-color: #eeeeee;
 }
 
 .App {
   width: 100%;
 }
 
+/***************
+***NAVIGATION***
+***************/
 .site-navigation {
   display: flex;
   flex-direction: row;
@@ -98,6 +101,43 @@ html, body {
 .site-navigation ul li .nav-link:hover {
   background-color: white;
   color: black;
+}
+
+/*********
+***HOME***
+*********/
+.home-container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 200px auto;
+}
+.home-container h2 {
+  margin-bottom: 30px;
+  font-size: 45px;
+}
+
+/***************
+***LOGIN FORM***
+***************/
+.login-container {
+  width: 20%;
+  margin: 200px auto;
+}
+.login-container .login-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.login-container label {
+  font-size: 35px;
+  margin: 20px 0;
+}
+.login-container input {
+  height: 45px;
+  border: 2 solid black;
+  border-radius: 7px;
+  font-size: 30px;
 }
 
 /*# sourceMappingURL=styles.css.map */

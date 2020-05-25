@@ -62,12 +62,16 @@ table {
 
 html, body {
 	width: 100%;
-	background-color: lightblue;
+	background-color: #eeeeee;
 }
 
 .App {
 	width: 100%;
 }
+
+/***************
+***NAVIGATION***
+***************/
 
 .site-navigation {
 	display: flex;
@@ -104,3 +108,47 @@ html, body {
 		}
 	}
 }
+
+/*********
+***HOME***
+*********/
+
+.home-container {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+	margin: 200px auto;
+
+	h2 {
+		margin-bottom: 30px;
+		font-size: 45px;
+	}
+}
+
+/***************
+***LOGIN FORM***
+***************/
+
+.login-container {
+	width: 20%;
+	margin: 200px auto;
+
+	.login-form {
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+	}
+
+	label {
+		font-size: 35px;
+		margin: 20px 0;
+	}
+
+	input {
+		height: 45px;
+		border: 2 solid black;
+		border-radius: 7px;
+		font-size: 30px;
+	}
+}
+
