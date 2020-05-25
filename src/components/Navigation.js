@@ -6,10 +6,10 @@ export default function Navigation() {
 		<nav className='site-navigation'>
 			<h3 className='site-name'>GIGAPETS</h3>
 			<ul>
-				<li><Link className='nav-link' to='/'>Item 1</Link></li>
-				<li><Link className='nav-link' to='/'>Item 2</Link></li>
-				<li><Link className='nav-link' to='/'>Item 3</Link></li>
-				<li><Link className='nav-link' to='/'>Item 4</Link></li>
+				<li><Link className='nav-link' to='/'>Home</Link></li>
+				<li><Link className='nav-link' to='/login'>Login</Link></li>
+
+				
 			</ul>
 		</nav>
 	)
