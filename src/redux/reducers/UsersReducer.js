@@ -5,17 +5,42 @@ import {
 } from '../actions/UsersAction'
 
 const initialState = {
-	username: "",
-	password: "",
-	first_name: "",
-	last_name: ""
+	user: {
+		username: "",
+		password: "",
+		first_name: "",
+		last_name: "",
+	},
+	isLoading: false,
+	error: ""
 }
 
-export default const UsersReducer(state = initialState, action) {
+export const UsersReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case GET_LOGIN_STARTED:
-			return null
-
+			return {
+				...state,
+				isLoading: true,
+				error: ""
+			}
+		case GET_LOGIN_SUCCESS:
+			return {
+				...state,
+				user: {
+					username: action.payload.username,
+					password: action.payload.password,
+					first_name: action.payload.first_name,
+					last_name: action.payload.last_name
+				},
+				isLoading: false,
+				error: ""
+			}
+		case GET_LOGIN_ERROR:
+			return {
+				...state,
+				isLoading: false,
+				error: action.payload.message
+			}
 		default:
 			return state
 	}
