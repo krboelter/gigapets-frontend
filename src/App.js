@@ -17,9 +17,8 @@ function App() {
 			<Navigation />
 
 			<Route exact path='/' component={Home} />
-			{ !token &&
-				<Route exact path='/login' component={Login}/>
-			}
+			<Route exact path='/login' component={Login}/>
+
 			<PrivateRoute exapt path='/dashboard' component={Dashboard} />
 		</div>
 	);

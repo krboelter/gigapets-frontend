@@ -8,14 +8,14 @@ export const GET_USER_SUCCESS = 'GET_USER_SUCCESS'
 export const GET_USER_ERROR = 'GET_USER_ERROR'
 
 export function loginUser(newUser) {
+	console.log(newUser, "NEW USER FROM REDUX")
 	return dispatch => {
 		dispatch({type: GET_LOGIN_STARTED})
 
-		api.post('/api/auth/register', newUser)
+		api.post('/api/auth/login', newUser)
 			.then(res => {
 				dispatch({type: GET_LOGIN_SUCCESS, payload: res})
 				localStorage.setItem('token', res.token)
-				window.history.push('/login')
 			})
 			.catch(error => {
 				dispatch({type: GET_LOGIN_ERROR, payload: error})

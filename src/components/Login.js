@@ -11,11 +11,17 @@ function Login(props) {
 	})
 
 	const handleChange = (e) => {
-		[e.target.name] = e.target.value
+		setUser({
+			...user,
+			[e.target.name]: e.target.value
+		})
 	}
 
 	const handleSubmit = (e) => {
+		e.preventDefault()
+		console.log(user, "USER OBJECT")
 		props.loginUser(user)
+		props.history.push('/dashboard')
 	}
 
 	return (

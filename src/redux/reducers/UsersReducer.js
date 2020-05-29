@@ -31,9 +31,7 @@ export const UsersReducer = (state = initialState, action) => {
 				...state,
 				user: {
 					username: action.payload.username,
-					password: null,
-					first_name: action.payload.first_name,
-					last_name: action.payload.last_name
+					password: action.payload.password
 				},
 				isLoading: false,
 				error: ""
