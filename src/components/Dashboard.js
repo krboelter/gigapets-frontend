@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getUserInfo } from '../redux/actions/UsersAction'
 
 function Dashboard(props) {
+
+	const [user, setUser] = useState({})
+
+	useState(() => {
+		setUser(
+			props.getUserInfo()
+		)
+	})
+
 	return (
 		<div className='dashboard-container'>
-			hello from dashboard
+			<p>Hello from props, {props.user}</p>
+			<p>Hello from local state, {user}</p>	
 		</div>
 	)
 }
