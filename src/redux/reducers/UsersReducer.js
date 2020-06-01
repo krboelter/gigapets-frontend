@@ -9,6 +9,7 @@ import {
 
 const initialState = {
 	user: {
+		id: 0,
 		username: "",
 		password: "",
 		first_name: "",
@@ -27,12 +28,12 @@ export const UsersReducer = (state = initialState, action) => {
 				error: ""
 			}
 		case GET_LOGIN_SUCCESS:
+			console.log(action.payload, "FROM REDUCER")
 			return {
 				...state,
 				user: {
 					...state.user,
-					username: action.payload.username,
-					password: action.payload.password
+					...action.payload.user
 				},
 				isLoading: false,
 				error: ""
@@ -52,13 +53,10 @@ export const UsersReducer = (state = initialState, action) => {
 		case GET_USER_SUCCESS:
 			return {
 				...state,
-				user: [...state.user,
-					{
-					username: action.payload.username,
-					password: action.payload.password,
-					first_name: action.payload.first_name,
-					last_name: action.payload.last_name
-				}],
+				user:{
+					...state.user,
+					...action.payload.user
+				},
 				isLoading: false,
 				error: ""
 			}

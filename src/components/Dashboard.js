@@ -3,19 +3,10 @@ import { connect } from 'react-redux'
 import { getUserInfo } from '../redux/actions/UsersAction'
 
 function Dashboard(props) {
-
-	const [user, setUser] = useState({})
-
-	useState(() => {
-		setUser(
-			props.getUserInfo(10)
-		)
-	})
-
+	console.log(props.user, "FROM DASHBOARD - REDUX")
 	return (
 		<div className='dashboard-container'>
-			<p>Hello from props, {props.user}</p>
-			<p>Hello from local state, {user}</p>	
+			<p>Hello from props, {props.user.first_name}</p>
 		</div>
 	)
 }
@@ -26,8 +17,4 @@ const mapStateToProps = state => {
 	}
 }
 
-const mapDispatchToProps = {
-	getUserInfo
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, null)(Dashboard)
