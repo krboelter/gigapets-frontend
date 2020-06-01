@@ -2,6 +2,14 @@ import React, { useState, useEffect }  from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../redux/actions/UsersAction'
 
+/*
+	"id": 10,
+    "username": "MrTest",
+	"password": "abc123"
+    "first_name": "Ken",
+    "last_name": "Boelter" 
+*/
+
 function Login(props) {
 	const [user, setUser] = useState({
 		username: "",
@@ -19,7 +27,6 @@ function Login(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		console.log(user, "USER OBJECT")
 		props.loginUser(user)
 		props.history.push('/dashboard')
 	}

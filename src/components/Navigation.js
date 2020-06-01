@@ -16,7 +16,7 @@ export default function Navigation() {
 				
 				{/* IF USER IS AUTHENTICATED */}
 				{ authenticated &&
-					<li><Link className='nav-link' to='/dashboard'>Dashbaard</Link></li>
+					<li><Link className='nav-link' to='/dashboard'>Dashboard</Link></li>
 				}
 			</ul>
 		</nav>

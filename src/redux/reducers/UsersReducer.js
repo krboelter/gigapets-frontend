@@ -30,6 +30,7 @@ export const UsersReducer = (state = initialState, action) => {
 			return {
 				...state,
 				user: {
+					...state.user,
 					username: action.payload.username,
 					password: action.payload.password
 				},
@@ -51,12 +52,13 @@ export const UsersReducer = (state = initialState, action) => {
 		case GET_USER_SUCCESS:
 			return {
 				...state,
-				user: {
+				user: [...state.user,
+					{
 					username: action.payload.username,
-					password: null,
+					password: action.payload.password,
 					first_name: action.payload.first_name,
 					last_name: action.payload.last_name
-				},
+				}],
 				isLoading: false,
 				error: ""
 			}

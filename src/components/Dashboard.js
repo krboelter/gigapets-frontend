@@ -8,7 +8,7 @@ function Dashboard(props) {
 
 	useState(() => {
 		setUser(
-			props.getUserInfo()
+			props.getUserInfo(10)
 		)
 	})
 
