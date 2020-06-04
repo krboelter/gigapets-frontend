@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect} from 'react-redux'
 
-export default function Navigation() {
+function Navigation(props) {
 	const authenticated = localStorage.getItem('token')
 	return(
 		<nav className='site-navigation'>
@@ -22,3 +23,11 @@ export default function Navigation() {
 		</nav>
 	)
 }
+
+const mapStateToProps = state => {
+	return {
+		loaded: state.loaded
+	}
+}
+
+export default connect(mapStateToProps, null)(Navigation)

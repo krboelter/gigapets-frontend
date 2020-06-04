@@ -7,6 +7,10 @@ function Dashboard(props) {
 	return (
 		<div className='dashboard-container'>
 			<p>Hello from props, {props.user.first_name}</p>
+			<button onClick={e => {
+				e.preventDefault()
+				console.log(props.user)
+			}}>GET USER</button>
 		</div>
 	)
 }

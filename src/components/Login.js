@@ -11,12 +11,7 @@ import { loginUser } from '../redux/actions/UsersAction'
 */
 
 function Login(props) {
-	const [user, setUser] = useState({
-		username: "",
-		password: "",
-		first_name: "",
-		last_name: ""
-	})
+	const [user, setUser] = useState({})
 
 	const handleChange = (e) => {
 		setUser({
@@ -50,6 +45,12 @@ function Login(props) {
 			</form>
 		</div>
 	)
+}
+
+const mapStateToProps = state => {
+	return {
+		loaded: state.loaded
+	}
 }
 
 const mapDispatchToProps = {

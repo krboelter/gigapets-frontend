@@ -10,11 +10,11 @@ export const GET_USER_ERROR = 'GET_USER_ERROR'
 export function loginUser(newUser) {
 	return dispatch => {
 		dispatch({type: GET_LOGIN_STARTED})
+		console.log("hit")
 
 		api()
 			.post('/api/auth/login', newUser)
 			.then(res => {
-				console.log(res, "FROM ACTION")
 				dispatch({type: GET_LOGIN_SUCCESS, payload: res.data})
 				localStorage.setItem('token', res.data.token)
 			})

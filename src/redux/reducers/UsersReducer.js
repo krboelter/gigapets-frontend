@@ -16,6 +16,7 @@ const initialState = {
 		last_name: "",
 	},
 	isLoading: false,
+	loaded: false,
 	error: ""
 }
 
@@ -36,6 +37,7 @@ export const UsersReducer = (state = initialState, action) => {
 					...action.payload.user
 				},
 				isLoading: false,
+				loaded: true,
 				error: ""
 			}
 		case GET_LOGIN_ERROR:
