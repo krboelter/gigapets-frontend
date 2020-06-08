@@ -3,22 +3,32 @@ import { connect } from 'react-redux'
 import { getUserInfo } from '../redux/actions/UsersAction'
 
 function Dashboard(props) {
+	const [user, setUser] = useState({})
+
+	useEffect(() => {
+		props.getUserInfo(10)
+	}, [])
+
 	console.log(props.user, "FROM DASHBOARD - REDUX")
 	return (
 		<div className='dashboard-container'>
-			<p>Hello from props, {props.user.first_name}</p>
-			<button onClick={e => {
-				e.preventDefault()
-				console.log(props.user)
-			}}>GET USER</button>
+			{ !props.loaded ?
+				<p>Loading...</p>:
+				<p>Hello from props, {props.user.first_name}</p>
+			}
 		</div>
 	)
 }
 
 const mapStateToProps = state => {
 	return {
-		user: state.user
+		user: state.user,
+		loaded: state.loaded
 	}
 }
 
-export default connect(mapStateToProps, null)(Dashboard)
+const mapDispatchToProps = {
+	getUserInfo
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

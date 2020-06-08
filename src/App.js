@@ -17,13 +17,8 @@ function App(props) {
 		<div className="App">
 			<Navigation />
 
-			{ !props.loaded &&
-				<p>Loading...</p>
-			}
-
 			<Route exact path='/' component={Home} />
 			<Route exact path='/login' component={Login}/>
-
 			<PrivateRoute exapt path='/dashboard' component={Dashboard} />
 		</div>
 	);

@@ -60,6 +60,7 @@ export const UsersReducer = (state = initialState, action) => {
 					...action.payload.user
 				},
 				isLoading: false,
+				loaded: true,
 				error: ""
 			}
 		case GET_USER_ERROR:

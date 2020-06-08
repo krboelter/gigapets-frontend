@@ -11,12 +11,12 @@ function Navigation(props) {
 				<li><Link className='nav-link' to='/'>Home</Link></li>
 
 				{/* IF USER IS NOT AUTHENTICATED */}
-				{ !authenticated &&
+				{ !props.loaded &&
 					<li><Link className='nav-link' to='/login'>Login</Link></li>
 				}
 				
 				{/* IF USER IS AUTHENTICATED */}
-				{ authenticated &&
+				{ props.loaded &&
 					<li><Link className='nav-link' to='/dashboard'>Dashboard</Link></li>
 				}
 			</ul>

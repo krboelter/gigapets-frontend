@@ -14,13 +14,11 @@ import { UsersReducer } from './redux/reducers/UsersReducer'
 const store = createStore(UsersReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<Router>
-				<App />
-			</Router>
-		</Provider>
-	</React.StrictMode>,
+	<Provider store={store}>
+		<Router>
+			<App />
+		</Router>
+	</Provider>,
 	document.getElementById('root')
 );
 
