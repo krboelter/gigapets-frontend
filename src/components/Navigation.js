@@ -19,6 +19,9 @@ function Navigation(props) {
 				{ props.loaded &&
 					<li><Link className='nav-link' to='/dashboard'>Dashboard</Link></li>
 				}
+				{ props.loaded &&
+					<li><Link className = 'nav-link' to='/children'>Children</Link></li>
+				}
 			</ul>
 		</nav>
 	)

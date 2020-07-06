@@ -5,10 +5,6 @@ import { getUserInfo } from '../redux/actions/UsersAction'
 function Dashboard(props) {
 	const [user, setUser] = useState({})
 
-	useEffect(() => {
-		props.getUserInfo(10)
-	}, [])
-
 	console.log(props.user, "FROM DASHBOARD - REDUX")
 	return (
 		<div className='dashboard-container'>

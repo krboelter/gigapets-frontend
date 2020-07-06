@@ -9,6 +9,7 @@ import Navigation from './components/Navigation'
 import Home from './components/Home'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
+import Children from './components/Children'
 
 function App(props) {
 	const [token, setToken] = useState(getToken())
@@ -19,6 +20,7 @@ function App(props) {
 
 			<Route exact path='/' component={Home} />
 			<Route exact path='/login' component={Login}/>
+			<PrivateRoute exact path='/children' component={Children}/>
 			<PrivateRoute exapt path='/dashboard' component={Dashboard} />
 		</div>
 	);
