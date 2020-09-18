@@ -1,13 +1,14 @@
 import React, { useState, useEffect }  from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../redux/actions/UsersAction'
+// Need a case to solve for invlaid username or password
 
 /*
 	"id": 10,
     "username": "MrTest",
 	"password": "abc123"
     "first_name": "Ken",
-    "last_name": "Boelter" 
+    "last_name": "Boelter"
 */
 
 function Login(props) {
