@@ -29,7 +29,6 @@ export const UsersReducer = (state = initialState, action) => {
 				error: ""
 			}
 		case GET_LOGIN_SUCCESS:
-			console.log(action.payload, "FROM REDUCER")
 			return {
 				...state,
 				user: {
