@@ -120,8 +120,12 @@ html, body {
 	margin: 200px auto;
 
 	h2 {
+		font-size: 45px;
 		margin-bottom: 30px;
 		font-size: 45px;
+	}
+	p {
+		font-size: 20px;
 	}
 }
 
@@ -149,6 +153,12 @@ html, body {
 		border: 2 solid black;
 		border-radius: 7px;
 		font-size: 30px;
+	}
+	button {
+		width: 50%;
+		height: 35px;
+		margin: 20px auto;
+		border-radius: 5px;
 	}
 }
 

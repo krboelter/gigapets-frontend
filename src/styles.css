@@ -139,5 +139,11 @@ html, body {
   border-radius: 7px;
   font-size: 30px;
 }
+.login-container button {
+  width: 50%;
+  height: 35px;
+  margin: 20px auto;
+  border-radius: 5px;
+}
 
 /*# sourceMappingURL=styles.css.map */
