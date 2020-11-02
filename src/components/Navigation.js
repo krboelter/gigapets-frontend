@@ -29,7 +29,7 @@ function Navigation(props) {
 
 const mapStateToProps = state => {
 	return {
-		loaded: state.loaded
+		loaded: state.user.loaded
 	}
 }
 

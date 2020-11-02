@@ -5,12 +5,16 @@ import { getUserInfo } from '../redux/actions/UsersAction'
 function Dashboard(props) {
 	const [user, setUser] = useState({})
 
-	console.log(props.user, "FROM DASHBOARD - REDUX")
+	useEffect(() => {
+		setUser({...props.user.user})
+	}, [props.user])
+
+
 	return (
 		<div className='dashboard-container'>
-			{ !props.loaded ?
+			{ !props.user.loaded ?
 				<p>Loading...</p>:
-				<p>Hello from props, {props.user.first_name}</p>
+				<p>Hello from props, {user.first_name}</p>
 			}
 		</div>
 	)
@@ -19,7 +23,6 @@ function Dashboard(props) {
 const mapStateToProps = state => {
 	return {
 		user: state.user,
-		loaded: state.loaded
 	}
 }
 
