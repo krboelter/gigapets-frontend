@@ -3,7 +3,7 @@ import {
     GET_CHILDREN_STARTED,
     GET_CHILDREN_SUCCESS,
     GET_CHILDREN_ERROR
-} from '../actions/ChildReducer'
+} from '../actions/ChildAction'
 const initialState = {
     children: [],
     child: {
@@ -41,5 +41,7 @@ export const ChildReducer = (state=initialState, action) => {
                 loaded: true,
                 error: action.payload.message
             }
+        default:
+            return state
     }
 }
