@@ -3,21 +3,17 @@ import {connect} from 'react-redux'
 import { Button } from '@material-ui/core'
 import ChildModal from './ChildModal'
 
-import { getChildren } from '../redux/actions/ChildAction'
+import { getUserInfo } from '../redux/actions/UsersAction'
 
 function Children(props) {
 	const [modalOpen, setModalOpen] = useState(false)
-	const [children, setChildren] = useState([])
 
 	const handleClose = () => {
 		setModalOpen(!modalOpen)
 	}
 
 	useEffect(() => {
-		// try to add child, not permitted to access this page
-		// no children for MrTest, also getting 404
-		props.getChildren(props.user.id)
-		setChildren(props.children?.children)
+		props.getUserInfo(props.user.id)
 	}, [])
 
 	console.log(props.children, "FROM CHILDREN")
@@ -28,7 +24,7 @@ function Children(props) {
 			<ul>
 				{!props.children?
 					<p>Loading...</p>:
-					children.map(child => (
+					props.children.map(child => (
 						<Button>{child}</Button>
 				))}
 			</ul>
@@ -41,12 +37,12 @@ function Children(props) {
 const mapStateToProps = state => {
 	return {
 		user: state.user.user,
-		children: state.children
+		children: state.user.children
 	}
 }
 
 const mapDispatchToProps = {
-	getChildren,
+	getUserInfo
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Children)

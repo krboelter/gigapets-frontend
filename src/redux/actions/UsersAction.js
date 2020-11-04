@@ -15,6 +15,7 @@ export function loginUser(newUser) {
 			.post('/api/auth/login', newUser)
 			.then(res => {
 				console.log(res.data, "LOGIN WAS SUCCESSFULL")
+				console.log(res, "RES FROM ACTIONS")
 				dispatch({type: GET_LOGIN_SUCCESS, payload: res.data})
 				localStorage.setItem('token', res.data.token)
 			})
