@@ -15,6 +15,7 @@ const initialState = {
 		first_name: "",
 		last_name: "",
 	},
+	children: [],
 	isLoading: false,
 	loaded: false,
 	error: ""
@@ -58,6 +59,7 @@ export const UsersReducer = (state=initialState, action) => {
 					...state.user,
 					...action.payload.user
 				},
+				children: [...state.children, action.payload.user.children],
 				isLoading: false,
 				loaded: true,
 				error: ""

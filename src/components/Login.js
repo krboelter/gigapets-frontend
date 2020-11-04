@@ -50,12 +50,6 @@ function Login(props) {
 	)
 }
 
-const mapStateToProps = state => {
-	return {
-		loaded: state.loaded
-	}
-}
-
 const mapDispatchToProps = {
 	loginUser
 }
