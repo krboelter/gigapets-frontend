@@ -59,7 +59,10 @@ export const UsersReducer = (state=initialState, action) => {
 					...state.user,
 					...action.payload.user
 				},
-				children: [...state.children, action.payload.user.children],
+				children: [
+					...state.children,
+					...action.payload.children
+				],
 				isLoading: false,
 				loaded: true,
 				error: ""

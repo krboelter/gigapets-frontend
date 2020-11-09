@@ -7,16 +7,16 @@ import { getUserInfo } from '../redux/actions/UsersAction'
 
 function Children(props) {
 	const [modalOpen, setModalOpen] = useState(false)
+	const [selectedChild, setSelectedChild] = useState({})
 
-	const handleClose = () => {
+	const toggleModal = (selected) => {
 		setModalOpen(!modalOpen)
+		setSelectedChild(selected)
 	}
 
 	useEffect(() => {
 		props.getUserInfo(props.user.id)
 	}, [])
-
-	console.log(props.children, "FROM CHILDREN")
 
 	return (
 		<div>
@@ -25,16 +25,16 @@ function Children(props) {
 				{!props.children?
 					<p>Loading...</p>:
 					props.children.map(child => (
-						<Button>{child}</Button>
+						<Button onClick={() => toggleModal(child)} key={child.id}>{child.name}</Button>
 				))}
 			</ul>
 
-			<ChildModal open={modalOpen} handleClose={handleClose} />
+			<ChildModal child={selectedChild} open={modalOpen} toggleModal={toggleModal} />
 		</div>
 	)
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
 	return {
 		user: state.user.user,
 		children: state.user.children

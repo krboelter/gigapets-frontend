@@ -12,8 +12,6 @@ import Dashboard from './components/Dashboard'
 import Children from './components/Children'
 
 function App(props) {
-	const [token, setToken] = useState(getToken())
-
 	return (
 		<div className="App">
 			<Navigation />
