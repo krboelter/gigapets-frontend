@@ -15,9 +15,9 @@ export function loginUser(newUser) {
 			.post('/api/auth/login', newUser)
 			.then(res => {
 				console.log(res.data, "LOGIN WAS SUCCESSFULL")
-				console.log(res, "RES FROM ACTIONS")
+				// console.log(res, "RES FROM ACTIONS")
 				dispatch({type: GET_LOGIN_SUCCESS, payload: res.data})
-				localStorage.setItem('token', res.data.token)
+				window.localStorage.setItem('token', res.data.token)
 			})
 			.catch(error => {
 				dispatch({type: GET_LOGIN_ERROR, payload: error})
@@ -32,9 +32,11 @@ export function getUserInfo(userId) {
 		api()
 			.get(`/api/auth/users/${userId}`)
 			.then(res => {
+				console.log(res.data, "FROM GET USER INFO")
 				dispatch({type: GET_USER_SUCCESS, payload: res.data})
 			})
 			.catch(error => {
+				console.log(error, "ERROR FROM GET USER INFO")
 				dispatch({type: GET_USER_ERROR, payload: error})
 			})
 	}
