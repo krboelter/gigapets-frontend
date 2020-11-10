@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import {connect} from 'react-redux'
-import { Button } from '@material-ui/core'
-import ChildModal from './ChildModal'
-
+import ChildCard  from './ChildCard'
 import { getUserInfo } from '../redux/actions/UsersAction'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles({
+	container: {
+		display: 'flex',
+		justifyContent: 'space-between',
+		width: '80%',
+		margin: '0 auto'
+	}
+})
 
 function Children(props) {
-	const [modalOpen, setModalOpen] = useState(false)
-	const [selectedChild, setSelectedChild] = useState({})
-
-	const toggleModal = (selected) => {
-		setModalOpen(!modalOpen)
-		setSelectedChild(selected)
-	}
+	const styles = useStyles()
 
 	useEffect(() => {
 		props.getUserInfo(props.user.id)
@@ -21,20 +23,18 @@ function Children(props) {
 	return (
 		<div>
 			<h1>Children</h1>
-			<ul>
+			<div className={styles.container}>
 				{!props.children?
 					<p>Loading...</p>:
 					props.children.map(child => (
-						<Button onClick={() => toggleModal(child)} key={child.id}>{child.name}</Button>
+						<ChildCard key={child.id} child={child}/>
 				))}
-			</ul>
-
-			<ChildModal child={selectedChild} open={modalOpen} toggleModal={toggleModal} />
+			</div>
 		</div>
 	)
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 	return {
 		user: state.user.user,
 		children: state.user.children
