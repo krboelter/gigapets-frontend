@@ -14,6 +14,9 @@ function Navigation(props) {
 				{ !props.loaded &&
 					<li><Link className='nav-link' to='/login'>Login</Link></li>
 				}
+				{ !props.loaded && 
+					<li><Link className='nav-link' to='/new-user'>New User</Link></li>
+				}
 				
 				{/* IF USER IS AUTHENTICATED */}
 				{ props.loaded &&

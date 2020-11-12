@@ -1,9 +1,6 @@
 import React, { useState, useEffect }  from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../redux/actions/UsersAction'
-// Need a case to solve for invlaid username or password
-// check to see the error code for unsuccessful login and handle that error
-// also, use formik (installed)
 
 /*
 	"id": 10,
