@@ -10,6 +10,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 import Children from './components/Children'
+import NewUser from './components/NewUser'
 
 function App(props) {
 	return (
@@ -17,6 +18,7 @@ function App(props) {
 			<Navigation />
 
 			<Route exact path='/' component={Home} />
+			<Route exact path='/new-user' component={NewUser} />
 			<Route exact path='/login' component={Login}/>
 			<PrivateRoute exact path='/children' component={Children}/>
 			<PrivateRoute exapt path='/dashboard' component={Dashboard} />

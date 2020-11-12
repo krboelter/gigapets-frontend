@@ -6,6 +6,9 @@ export const GET_LOGIN_ERROR = 'GET_LOGIN_ERROR'
 export const GET_USER_STARTED = 'GET_USER_STARTED'
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS'
 export const GET_USER_ERROR = 'GET_USER_ERROR'
+export const GET_CREATE_STARTED = 'GET_CREATE_STARTED'
+export const GET_CREATE_SUCCESS = 'GET_CREATE_SUCCESS'
+export const GET_CREATE_ERROR = 'GET_CREATE_ERROR'
 
 export function loginUser(newUser) {
 	return dispatch => {
@@ -38,6 +41,23 @@ export function getUserInfo(userId) {
 			.catch(error => {
 				console.log(error, "ERROR FROM GET USER INFO")
 				dispatch({type: GET_USER_ERROR, payload: error})
+			})
+	}
+}
+
+export function createUser(newUser) {
+	return dispatch => {
+		dispatch({ type: GET_CREATE_STARTED })
+
+		api()
+			.post(`/api/auth/register`, newUser)
+			.then(res => {
+				console.log(res.data, "USER CREATED")
+				dispatch({ type: GET_CREATE_SUCCESS, payload: res.data })
+			})
+			.catch(error => {
+				console.log(error, "ERROR IN CREATE USER")
+				dispatch({ type: GET_CREATE_ERROR, payload: error})
 			})
 	}
 }
