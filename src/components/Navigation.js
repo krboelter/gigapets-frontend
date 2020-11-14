@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect} from 'react-redux'
 
 function Navigation(props) {
-	const authenticated = localStorage.getItem('token')
+	// const authenticated = localStorage.getItem('token')
 	return(
 		<nav className='site-navigation'>
 			<h3 className='site-name'>GIGAPETS</h3>
