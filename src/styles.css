@@ -55,36 +55,42 @@ table {
   border-spacing: 0;
 }
 
+/**************
+***VARIABLES***
+***************/
+
+:root {
+  --main-color: #6d3fc1;
+}
+
 /************
 ***GLOBALS***
 ************/
 
-.input-field-container {
-  margin: 10px auto;
-  width: 100%;
-}
-
-.input-field {
-  width: 100%;
-  height: 45px;
-  padding: 5px 5px;
-  background-color: #ac9fc4;
-  font-size: 22px;
-  border-radius: 6px;
-  margin-top: 8px;
-}
-
-.label-field {
+.form {
+  display: flex;
+  flex-direction: column;
   text-align: left;
-  font-size: 20px;
 }
 
-.button {
-  background-color: lightgray;
-  border-radius: 6px;
+.form label {
+  text-align: left;
+  font-size: 26px;
+  margin: 20px 0;
+}
+
+.form input {
+  height: 45px;
+  border: 2 solid black;
+  border-radius: 7px;
+  font-size: 30px;
+}
+
+.form button {
+  width: 50%;
+  height: 35px;
   margin: 20px auto;
-  padding: 12px 45px;
-  font-size: 20px;
+  border-radius: 5px;
 }
 
 /***********
@@ -107,7 +113,7 @@ html, body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #6d3fc1;
+  background-color: var(--main-color);
   width: 100%;
   height: 75px;
   color: white;
@@ -140,41 +146,14 @@ html, body {
 .home-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 40%;
   margin: 200px auto;
 }
 .home-container h2 {
   margin-bottom: 30px;
   font-size: 45px;
-}
-
-/***************
-***LOGIN FORM***
-***************/
-.login-container {
-  width: 20%;
-  margin: 200px auto;
-}
-.login-container .login-form {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-.login-container label {
-  font-size: 35px;
-  margin: 20px 0;
-}
-.login-container input {
-  height: 45px;
-  border: 2 solid black;
-  border-radius: 7px;
-  font-size: 30px;
-}
-.login-container button {
-  width: 50%;
-  height: 35px;
-  margin: 20px auto;
-  border-radius: 5px;
 }
 
 /*# sourceMappingURL=styles.css.map */
