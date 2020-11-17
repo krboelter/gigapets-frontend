@@ -27,7 +27,7 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         alignItems: 'center',
         padding: '10px 0',
-        borderBottom: '2px solid black',
+        borderBottom: '2px solid lightgray',
 		boxShadow: '0 2px 4px black',
 		fontWeight: 'bold'
     },

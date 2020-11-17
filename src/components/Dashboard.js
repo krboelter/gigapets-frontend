@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 
 function Dashboard(props) {
 	return (
-		<div className='dashboard-container'>
+		<div className='dash-container'>
+			<h2 className='dash-title'>Dashboard</h2>
 			{ !props.user.loaded ?
-				<p>Loading...</p>:
+				<p className='loading'>Loading...</p>:
 				<div>
-					<p>Hello from props, {props.user.user.first_name}</p>
+					<p className='dash-user'>Welcome to the dashboard, {props.user.user.first_name}</p>
 				</div>
 			}
 		</div>
