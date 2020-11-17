@@ -13,6 +13,7 @@ const useStyles = makeStyles({
 	}
 })
 
+// every time you switch between dash and children in nav, a new child appears
 function Children(props) {
 	const styles = useStyles()
 

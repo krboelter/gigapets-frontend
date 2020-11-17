@@ -20,7 +20,7 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         alignItems: 'center',
         padding: '10px 0',
-        borderBottom: '2px solid black',
+        borderBottom: '2px solid lightgray',
         boxShadow: '0 2px 4px black',
 		fontWeight: 'bold'
     },
@@ -86,7 +86,7 @@ function NewUser(props) {
                             {formik.touched.first_name && formik.errors.first_name? (
                                 <div className={styled.required}>{formik.errors.first_name}</div>): null}
 
-                            <label htmlFor="last_name">First Name</label>
+                            <label htmlFor="last_name">Last Name</label>
                             <input
                                 id="last_name"
                                 type="text"

@@ -93,6 +93,14 @@ table {
   border-radius: 5px;
 }
 
+.loading {
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+}
+
 /***********
 ***CUSTOM***
 ***********/
@@ -154,6 +162,22 @@ html, body {
 .home-container h2 {
   margin-bottom: 30px;
   font-size: 45px;
+}
+
+/**************
+***DASHBOARD***
+***************/
+
+.dash-container {
+  width: 50%;
+  margin: 20px auto;
+}
+
+.dash-title {
+  font-size: 50px;
+  text-align: center;
+  border-bottom: 2px solid black;
+  padding-bottom: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */
