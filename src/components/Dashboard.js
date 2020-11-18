@@ -7,7 +7,7 @@ function Dashboard(props) {
 			<h2 className='dash-title'>Dashboard</h2>
 			{ !props.user.loaded ?
 				<p className='loading'>Loading...</p>:
-				<div>
+				<div className='dash-content'>
 					<p className='dash-user'>Welcome to the dashboard, {props.user.user.first_name}</p>
 				</div>
 			}
