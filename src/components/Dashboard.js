@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 function Dashboard(props) {
+	console.log(props.user)
 	return (
 		<div className='dash-container'>
 			<h2 className='dash-title'>Dashboard</h2>
@@ -20,5 +21,6 @@ const mapStateToProps = state => {
 		user: state.user,
 	}
 }
+
 
 export default connect(mapStateToProps, null)(Dashboard)
