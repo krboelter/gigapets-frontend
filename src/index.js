@@ -11,8 +11,9 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { UsersReducer } from './redux/reducers/UsersReducer'
 import { ChildReducer } from './redux/reducers/ChildReducer'
+import { EntriesReducer } from './redux/reducers/EntriesReducer'
 
-const rootReducer = combineReducers({ user: UsersReducer, children: ChildReducer})
+const rootReducer = combineReducers({ user: UsersReducer, children: ChildReducer, entries: EntriesReducer})
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(

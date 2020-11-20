@@ -1,7 +1,7 @@
 import { api } from '../../utils/api'
 
 export const GET_ENTRIES_STARTED = "GET_ENTRIES_STARTED"
-export const GET_ENTRIES_SUCCESSFUL = "GET_ENTRIES_SUCCESSFUL"
+export const GET_ENTRIES_SUCCESS = "GET_ENTRIES_SUCCESS"
 export const GET_ENTRIES_ERROR = "GET_ENTRIES_ERROR"
 
 export function getEntries(userId) {
@@ -9,12 +9,13 @@ export function getEntries(userId) {
         dispatch({ type: GET_ENTRIES_STARTED })
 
         api()
-            .get(`/api/auth/${userId}/entries`)
+        	.get(`/api/auth/users/${userId}/entries`)
             .then(res => {
                 console.log(res.data, "ENTRIES")
-                dispatch({ type: GET_ENTRIES_SUCCESSFUL, payload: res.data })
+                dispatch({ type: GET_ENTRIES_SUCCESS, payload: res.data })
             })
             .catch(error => {
+                console.log(error, "ERROR IN ENTRIES")
                 dispatch({ type: GET_ENTRIES_ERROR, payload: error })
             })
     }
