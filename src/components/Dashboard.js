@@ -15,12 +15,13 @@ function Dashboard(props) {
 				<div className='dash-content'>
 					<p className='dash-user'>Welcome to the dashboard, {props.user.user.first_name}</p>
 					<div className='entries-container'>
-						{props.entries.entries.map(entry => (
-							<div className='single-entry-container'>
+						{props.entries.entries.map((entry, index) => (
+							<div key={index} className='single-entry-container'>
 								<h4>Name: {entry.name}</h4>
 								<p>Food: {entry.food_name}</p>
 								<p>Category: {entry.category}</p>
 								<p>Amount: {entry.amount}</p>
+								<p>Oz: {entry.amount_type /*dropdown*/}</p>
 								<p>Date: {entry.date}</p>
 							</div>
 						))}
