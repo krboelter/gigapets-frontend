@@ -40,7 +40,7 @@ export const EntriesReducer = (state=initialState, action) => {
                 ...state,
                 isLoading: false,
                 loaded: false,
-                error: action.payload.message
+                error: action.payload
             }
         default:
             return state

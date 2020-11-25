@@ -1,9 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addEntry } from '../redux/actions/EntriesAction'
+import { newEntry } from '../redux/actions/EntriesAction'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import { makeStyles } from '@material-ui/core/styles'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
 
 const useStyles = makeStyles({
     shadowBox: {
@@ -33,12 +35,39 @@ function NewEntry(props) {
                 date: Yup.string()
             })}
             onSubmit={(values, { setSubmitting }) => {
-                props.addEntry(values)
+                props.newEntry(values)
             }}
         >
             {formik => (
                 <div className={styled.shadowBox}>
-
+                    <h3>Create New Entry</h3>
+                    <div>
+                        <form className="form">
+                            <label htmlFor="food_name">Food Name</label>
+                            <input 
+                                id="food_name"
+                                type="text"
+                                {...formik.getFieldProps('food_name')}
+                            />
+                            <label htmlFor="amount">Amount</label>
+                            <input 
+                                id="amount"
+                                type="text"
+                                {...formik.getFieldProps('amount')}
+                            />
+                            <label htmlFor="amount_type">Amount Type</label>
+                            <Select
+                                id="amount_type"
+                            >
+                                <MenuItem>lbs</MenuItem>
+                                <MenuItem>oz</MenuItem>
+                                <MenuItem>grams</MenuItem>
+                                <MenuItem>pcs</MenuItem>
+                                <MenuItem>half</MenuItem>
+                                <MenuItem>halves</MenuItem>
+                            </Select>
+                        </form>
+                    </div>
                 </div>
             )}
         </Formik>
@@ -50,7 +79,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    addEntry
+    newEntry
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewEntry)
