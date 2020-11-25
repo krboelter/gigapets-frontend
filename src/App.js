@@ -11,6 +11,7 @@ import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 import Children from './components/Children'
 import NewUser from './components/NewUser'
+import NewEntry from './components/NewEntry'
 
 function App(props) {
 	return (
@@ -21,7 +22,8 @@ function App(props) {
 			<Route exact path='/new-user' component={NewUser} />
 			<Route exact path='/login' component={Login}/>
 			<PrivateRoute exact path='/children' component={Children}/>
-			<PrivateRoute exapt path='/dashboard' component={Dashboard} />
+			<PrivateRoute exact path='/dashboard' component={Dashboard} />
+			<PrivateRoute exact path='/new_entry' component={NewEntry} />
 		</div>
 	);
 }
