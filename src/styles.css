@@ -157,11 +157,14 @@ html, body {
   justify-content: center;
   align-items: center;
   width: 40%;
-  margin: 200px auto;
+  margin: 100px auto;
 }
 .home-container h2 {
   margin-bottom: 30px;
   font-size: 45px;
+}
+.home-container p {
+  font-size: 20px;
 }
 
 /**************
