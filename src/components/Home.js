@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Home() {
+export default function Home(props) {
 	return (
 		<div className='home-container'>
 			<h2>Welcom to Gigapets!</h2>
