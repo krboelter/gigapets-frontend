@@ -1,11 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { newEntry } from '../redux/actions/EntriesAction'
-import { Formik } from 'formik'
+import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 import { makeStyles } from '@material-ui/core/styles'
-import Select from '@material-ui/core/Select'
-import MenuItem from '@material-ui/core/MenuItem'
+import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles({
     shadowBox: {
@@ -62,27 +61,30 @@ function NewEntry(props) {
                         <form className="form">
                             <label htmlFor="food_name">Food Name</label>
                             <input 
-                                id="food_name"
+                                name="food_name"
                                 type="text"
                                 {...formik.getFieldProps('food_name')}
                             />
                             <label htmlFor="amount">Amount</label>
                             <input 
-                                id="amount"
+                                name="amount"
                                 type="text"
                                 {...formik.getFieldProps('amount')}
                             />
                             <label htmlFor="amount_type">Amount Type</label>
-                            <Select
-                                id="amount_type"
+                            <Field
+                                name="amount_type"
+                                as="select"
+                                className="select-field"
                             >
-                                <MenuItem>lbs</MenuItem>
-                                <MenuItem>oz</MenuItem>
-                                <MenuItem>grams</MenuItem>
-                                <MenuItem>pcs</MenuItem>
-                                <MenuItem>half</MenuItem>
-                                <MenuItem>halves</MenuItem>
-                            </Select>
+                                <option value="lbs">lbs</option>
+                                <option value="oz">oz</option>
+                                <option value="grams">grams</option>
+                                <option value="pcs">pcs</option>
+                                <option value="half">half</option>
+                                <option value="halves">halves</option>
+                            </Field>
+                            <Button variant="outlined" type="sumbit">Submit</Button>
                         </form>
                     </div>
                 </div>

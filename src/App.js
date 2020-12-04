@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css'
 import { Route } from 'react-router-dom'
-import { getToken } from './utils/api'
 import { connect } from 'react-redux'
 
 import { PrivateRoute } from './components/Private'
