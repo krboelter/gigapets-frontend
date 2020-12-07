@@ -24,12 +24,12 @@ export function getEntries(userId) {
     }
 }
 
-export function newEntry(userId, entry) {
+export function newEntry(userId, childName, entry) {
     return dispatch => {
         dispatch({ type: GET_NEW_ENTRY_STARTED })
 
         api()
-            .post(`api/auth/users/${userId}/entries`, entry)
+            .post(`api/auth/users/${userId}/entries/${childName}`, entry)
             .then(res => {
                 console.log(res.data, "NEW ENTRY CREATED")
                 dispatch({ type: GET_NEW_ENTRY_SUCCESS, payload: res.data })
