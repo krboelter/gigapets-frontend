@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { newEntry } from '../redux/actions/EntriesAction'
 import { Formik, Field } from 'formik'
@@ -31,9 +31,12 @@ const useStyles = makeStyles({
 })
 
 // display the past 2 recent entries (so they know what they last entered)
-
+// need to set the value of the chosen child and send it through to the action
+// need to get children first. Unless they go to their children page, store doesn't have children yet
 function NewEntry(props) {
     const styled = useStyles()
+    const [names, setNames] = useState()
+    console.log(props.user)
 
     return (
         <Formik
@@ -46,19 +49,27 @@ function NewEntry(props) {
                     .positive('Must be a positive number')
                     .integer('Must be a whole number'),
                 amount_type: Yup.string()
-                    .required('Required')
-                    .matches(/(oz|lbs|pcs|grams)/, 'Must be a valid weight type: oz, pcs, lbs, etc...'),
+                    .required('Required'),
                 date: Yup.string()
             })}
             onSubmit={(values, { setSubmitting }) => {
-                props.newEntry(values)
+                console.log(values)
+                // props.newEntry(props.user.id, values)
             }}
         >
             {formik => (
                 <div className={styled.shadowBox}>
                     <h3 className={styled.entryHeader}>Create New Entry</h3>
                     <div className={styled.formContainer}>
-                        <form className="form">
+                        <form className="form" onSubmit={formik.handleSubmit}>
+                            <Field
+                                name="child_name"
+                                as="select"
+                            >
+                                {props.children.map((child, index) => (
+                                    <option key={index} value={child.name}>{child.name}</option>
+                                ))}
+                            </Field>
                             <label htmlFor="food_name">Food Name</label>
                             <input 
                                 name="food_name"
@@ -76,14 +87,22 @@ function NewEntry(props) {
                                 name="amount_type"
                                 as="select"
                                 className="select-field"
+                                {...formik.getFieldProps('amount_type')}
                             >
                                 <option value="lbs">lbs</option>
                                 <option value="oz">oz</option>
                                 <option value="grams">grams</option>
                                 <option value="pcs">pcs</option>
+                                <option value="slices">slices</option>
                                 <option value="half">half</option>
                                 <option value="halves">halves</option>
                             </Field>
+                            <label htmlFor="date">Date</label>
+                            <input 
+                                name="date"
+                                type="date"
+                                {...formik.getFieldProps('date')}
+                            />
                             <Button variant="outlined" type="sumbit">Submit</Button>
                         </form>
                     </div>
@@ -93,8 +112,15 @@ function NewEntry(props) {
     )
 }
 
+const mapStateToProps = state => {
+    return {
+        children: state.user.children,
+        user: state.user.user
+    }
+}
+
 const mapDispatchToProps = {
     newEntry
 }
 
-export default connect(null, mapDispatchToProps)(NewEntry)
+export default connect(mapStateToProps, mapDispatchToProps)(NewEntry)

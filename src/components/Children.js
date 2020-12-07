@@ -14,7 +14,6 @@ const useStyles = makeStyles({
 })
 
 // every time you switch between dash and children in nav, a new child appears
-// is child.id still all 1's?
 function Children(props) {
 	const styles = useStyles()
 
