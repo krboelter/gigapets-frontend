@@ -21,8 +21,10 @@ function Dashboard(props) {
 	const styled = useStyles()
 
 	useEffect(() => {
-		props.getEntries(props.user?.user.id)
-	}, [props.user.loaded])
+		if (props.user?.loaded) {
+			props.getEntries(props.user?.user.id)
+		}
+	}, [])
 
 	return (
 		<div className='dash-container'>
