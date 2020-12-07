@@ -6,11 +6,9 @@ import * as Yup from 'yup'
 import { makeStyles } from '@material-ui/core/styles'
 
 /*
-	"id": 10,
-    "username": "MrTest",
-		"password": "abc123"
-    "first_name": "Ken",
-    "last_name": "Boelter"
+	username: Test
+	password: test123
+	user_id: 1
 */
 
 const useStyles = makeStyles({

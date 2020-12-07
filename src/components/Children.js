@@ -13,12 +13,13 @@ const useStyles = makeStyles({
 	}
 })
 
-// every time you switch between dash and children in nav, a new child appears
 function Children(props) {
 	const styles = useStyles()
 
 	useEffect(() => {
-		props.getUserInfo(props.user.id)
+		if (props.children?.length <= 0) {
+			props.getUserInfo(props.user.id)
+		}
 	}, [])
 
 	return (
