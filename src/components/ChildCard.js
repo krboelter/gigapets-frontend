@@ -4,16 +4,22 @@ import { makeStyles, styled } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
     container: {
+        width: '25%',
+        height: '125px',
+        padding: '8px 10px',
         textAlign: 'left',
-        backgroundColor: 'gray'
+        backgroundColor: 'lightgray',
+        boxShadow: '0 2px 4px black',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
     },
     header: {
-        fontSize: '30px',
-        width: '25%',
-        height: '300px'
+        fontSize: '24px',
+        height: '35px'
     },
     paragraph: {
-        fontSize: '20px'
+        fontSize: '18px'
     }
 })
 
@@ -22,9 +28,9 @@ export default function ChildCard(props) {
 
     return (
         <Card className={styles.container}>
-            <h2 className={styled.header}>{props.child.name}</h2>
-            <p className={styled.paragraph}>{props.child.age}</p>
-            <p>{props.child.weight}</p>
+            <h2 className={styles.header}>Name: {props.child.name}</h2>
+            <p className={styles.paragraph}>Age: {props.child.age}</p>
+            <p className={styles.paragraph}>Weight: {props.child.weight}</p>
         </Card>
     )
 }
