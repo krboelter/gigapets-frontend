@@ -10,7 +10,12 @@ const useStyles = makeStyles({
 		justifyContent: 'space-between',
 		width: '80%',
 		margin: '0 auto'
-	}
+	},
+	header: {
+		textAlign: 'center',
+		fontSize: '46px',
+		margin: '25px auto'
+	},
 })
 
 function Children(props) {
@@ -24,7 +29,7 @@ function Children(props) {
 
 	return (
 		<div>
-			<h1>Children</h1>
+			<h1 className={styles.header}>Children</h1>
 			<div className={styles.container}>
 				{!props.children?
 					<p>Loading...</p>:
