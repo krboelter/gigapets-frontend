@@ -101,6 +101,14 @@ table {
   margin-top: 15%;
 }
 
+.select-field {
+  background-color: white;
+  height: 45px;
+  border: 2 solid black;
+  border-radius: 7px;
+  font-size: 30px;
+}
+
 /***********
 ***CUSTOM***
 ***********/
@@ -188,7 +196,4 @@ html, body {
   font-size: 22px;
 }
 
-.dash-user {
-
-}
 /*# sourceMappingURL=styles.css.map */
