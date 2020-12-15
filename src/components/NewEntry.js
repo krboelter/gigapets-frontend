@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     },
     formContainer: {
         width: '60%',
-        margin: '90px auto'
+        margin: '30px auto'
     },
     entryHeader: {
         color: '#6d3fc1',
@@ -72,6 +72,7 @@ function NewEntry(props) {
                             <div className={styled.formContainer}>
                                 <form className="form" onSubmit={formik.handleSubmit}>
                                     <Field
+                                        className="select-field"
                                         name="child_name"
                                         as="select"
                                     >
